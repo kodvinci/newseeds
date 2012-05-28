@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120525084346) do
+ActiveRecord::Schema.define(:version => 20120528122349) do
 
   create_table "lenders", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "UID"
     t.integer  "exp"
+    t.integer  "credit",     :default => 0
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
-    t.integer  "credit",     :default => 0
   end
 
   create_table "purchases", :force => true do |t|
