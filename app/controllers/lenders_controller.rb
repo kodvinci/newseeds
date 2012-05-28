@@ -84,19 +84,19 @@ class LendersController < ApplicationController
     end
   end
 
-  def frompurchase
-    @lender = Lender.find(params[:id])
+  #def frompurchase
+  #  @lender = Lender.find(params[:id])
 
-    @newCredit = :credit + BILL_AMOUNT
+  #  @newCredit = :credit + BILL_AMOUNT
 
-    respond_to do |format|
-      if @lender.update_attribute(:credit, @newCredit)
-        format.html { redirect_to lender_url }
-        format.json { head :ok }
-      else
-        format.html { redirect_to :controller => 'purchase', :action => 'index'  }
+  #  respond_to do |format|
+  #    if @lender.update_attribute(:credit, @newCredit)
+  #      format.html { redirect_to lender_url }
+  #      format.json { head :ok }
+   #   else
+   #     format.html { redirect_to :controller => 'purchase', :action => 'index'  }
         #format.json { render json: @lender.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+   #   end
+  #  end
+ # end
 end
