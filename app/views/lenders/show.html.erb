@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @lender.first_name %>   <%= @lender.last_name %>
+</p>
+
+<p>
+  Through Seeds, you have lend out $: <b> <%= @lender.credit %> </b>
+</p>
+
+<p>
+Want to lend more? Please do so through our <%= link_to 'PayPal', purchase_credit_path %> Account. 
+</p>
+<%= link_to 'Back', lenders_path %>
+

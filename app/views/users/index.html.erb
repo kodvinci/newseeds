@@ -1,0 +1,9 @@
+<h1 style="color:green;text-align:center;">Users</h1>
+<table>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.first_name, user %></td>
+  </tr>
+<% end %>
+</table>
+

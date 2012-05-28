@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seeds</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <div id="header" style="background-color:#66CCFF;width:1000px;height:173px;margin: 0 auto;">
+	  <div id="logo" style="float:left"> <%= link_to image_tag("seedslogo.png") %> </div>
+	  <div id="subheader" style="font-family:arial;color:white;font-size:40px;text-align:center;"> <i>Farmville Meets Kiva</i> </div>
+  </div>
+</head>
+
+<body>
+	<div id="container" style="background-color:#FFFFCC;width:1000px;height:1200px;margin: 0 auto;">
+		<div id="loginitems" style="background-color:#FF66FF;height:1200px;width:150px;float:right;">
+			<h1 style="text-align:center;"><b>Profile</b></h1>
+			<ul class="hmenu">
+				<%= render 'devise/menu/registration_items' %>
+				<%= render 'devise/menu/login_items' %>
+				<p style="color: green"><%= notice %></p>
+	        		<p style="color: red"><%= alert %></p>
+			</ul>
+			<div id="lenderreg" style="background-color:#66CCFF;height:100px;width:150px;float:right;">
+				<p style="text-align:center">Register as a lender? <%= link_to('Yes!', new_lender_path) %> </p>
+			</div>
+		</div>
+
+		<div id="sitenavigation" style="background-color:#FF66FF;height:1200px;width:150px;float:left;">
+			<h2 style="text-align:center;"><b>Navigation</b></h2>
+			<ul class="hnavigation">
+				<%= render 'devise/menu/navigation' %>
+				<%= render 'devise/menu/paypal' %>
+			</ul>
+		</div>
+
+		<%= yield %>
+	</div>
+</body>
+<div id="footer" style="background-color:#66CCFF;width:1000px;height:50px;margin: 0 auto;text-align:center;">
+	<h1 >Copyright: Seeds MicroFunds. Contacts: rachel@microlendingfilm.com</h1>
+</div>
+</html>
