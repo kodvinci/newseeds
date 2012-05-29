@@ -85,7 +85,8 @@ class PurchaseController < ApplicationController
     
     def require_ssl
       return unless Rails.env.production?
-      redirect_to "https://#{request.host}#{request.request_uri}" unless request.ssl?
+      #redirect_to "https://#{request.host}#{request.request_uri}" unless request.ssl?
+      redirect_to :protocol => "https://" unless request.ssl?
     end
     
     def paypal_gateway(gw = :paypal)
