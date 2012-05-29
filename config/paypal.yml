@@ -9,10 +9,10 @@ development:
   :signature: 'A0o3AvXHe6Wb8ZjOT.FL5Z-A8u31A7JLBhnb4k03FQCtMEsaEk0dG3QL'
   :test: true
 production:
-  :login: 'login'
-  :password: 'password'
-  :signature: 'signature'
-  :test: false
+  :login: 'dranoe_1337688008_biz_api1.gmail.com'
+  :password: '1337688048'
+  :signature: 'A0o3AvXHe6Wb8ZjOT.FL5Z-A8u31A7JLBhnb4k03FQCtMEsaEk0dG3QL'
+  :test: true #changed from false
 test:
   :login: 'login'
   :password: 'password'
