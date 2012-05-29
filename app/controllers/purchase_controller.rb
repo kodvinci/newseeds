@@ -2,13 +2,12 @@ class PurchaseController < ApplicationController
   before_filter :require_ssl, :only => [ :index, :credit ]
   before_filter :load_card
   
-  BILL_AMOUNT = 1000
+  BILL_AMOUNT = 1200
   
   def index
   end
   
   # Use the DirectPayment API
-
   def credit
     render :action => 'index' and return unless @cc.valid?
     
@@ -18,9 +17,7 @@ class PurchaseController < ApplicationController
       
     if @response.success?
       @purchase = Purchase.create(:response => @response)
-
-      redirect_to :action => "complete", :id => @purchase 
-
+      redirect_to :action => "complete", :id => @purchase
     else
       paypal_error(@response)
     end
@@ -33,7 +30,7 @@ class PurchaseController < ApplicationController
     @response = gateway.setup_purchase(BILL_AMOUNT,
       :return_url => url_for(:action => 'express_complete'),
       :cancel_return_url => url_for(:action => 'index'),
-      :description => "Awesome Loans" #"My Great Product Name"
+      :description => "My Great Product Name"
     )
 
     if @response.success?
@@ -72,8 +69,7 @@ class PurchaseController < ApplicationController
     
     def require_ssl
       return unless Rails.env.production?
-      #redirect_to "https://#{request.host}#{request.request_uri}" unless request.ssl?
-      redirect_to :protocol => "https://" unless request.ssl?
+      redirect_to "https://#{request.host}#{request.request_uri}" unless request.ssl?
     end
     
     def paypal_gateway(gw = :paypal)
@@ -88,5 +84,5 @@ class PurchaseController < ApplicationController
     def load_card
       @cc = ActiveMerchant::Billing::CreditCard.new(params[:creditcard])
     end
-
 end
+
