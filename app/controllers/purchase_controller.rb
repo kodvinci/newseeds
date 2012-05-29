@@ -46,7 +46,7 @@ class PurchaseController < ApplicationController
     @response = gateway.setup_purchase(BILL_AMOUNT,
       :return_url => url_for(:action => 'express_complete'),
       :cancel_return_url => url_for(:action => 'index'),
-      :description => "My Great Product Name"
+      :description => "Awesome Loans" #"My Great Product Name"
     )
 
     if @response.success?
@@ -85,7 +85,7 @@ class PurchaseController < ApplicationController
     
     def require_ssl
       return unless Rails.env.production?
-      redirect_to "https://#{request.host}#{request.request_url}" unless request.ssl?
+      redirect_to "https://#{request.host}#{request.request_uri}" unless request.ssl?
     end
     
     def paypal_gateway(gw = :paypal)
