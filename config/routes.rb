@@ -9,11 +9,22 @@ Seeds::Application.routes.draw do
   resources :users, :only => [:index, :show]
   root :to => "home#index"
 
+  #resources :purchases
+
   %w(credit express express_complete complete).each do |action|
     match "purchase/#{action}" => "purchase##{action}"
   end
 
   resources :lenders
+
+ # resources :purchases
+#  match "purchase_credit", :controller =>"purchases", :action =>"credit";
+#  match "purchase_express", :controller =>"purchases", :action =>"express";
+#  match "purchase_express_complete", :controller =>"purchases", :action =>"express_complete";
+#  match "purchase_complete", :controller =>"purchases", :action =>"complete";
+  
+  
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

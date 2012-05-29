@@ -10,5 +10,27 @@ class User < ActiveRecord::Base
   
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
+  
+#  has_one :lender, :dependent => :destroy
 
+#  def new_lender_attributes=(lender_attributes)
+#    lender_attributes.each do |attributes|
+#    lender.build(attributes)
+#    end
+#  end  
+
+#def existing_lender_attributes=(lender_attributes)
+#lenders.reject(&:new_record?).each do |lender|
+#attributes = lender_attributes[lender.id.to_s]
+#if attributes
+#lender.attributes = attributes
+#else
+#tasks.delete(task)
+#end
+#end
+#end
+#def save_tasks
+#tasks.each do |task|
+#CLICK HERE
+  
 end
