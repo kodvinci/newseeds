@@ -10,11 +10,6 @@ class PurchaseController < ApplicationController
   # Use the DirectPayment API
 
   def credit
-   # @purchase = Purchase.find(params[:id])
-   # @lender.purchase_id = Purchase.find(params[:purchase_id])
-
-   # @purchase.lender_id = Lender.find(params[:lender_id])
-
     render :action => 'index' and return unless @cc.valid?
     
     @response = paypal_gateway.purchase(BILL_AMOUNT, @cc, 
@@ -24,15 +19,7 @@ class PurchaseController < ApplicationController
     if @response.success?
       @purchase = Purchase.create(:response => @response)
 
-     # @lender = Purchase.find(params[:id]).lenders
-     # @currentCredit = Lender.find(:select =>"credit", :conditions => "id = '1'")
-     # @currentCredit = Lender.select("credit").where("id = '1'") 
-     # @newCredit = @currentCredit + BILL_AMOUNT
-     # Lender.update_attribute(:credit, @newCredit)
-
-     redirect_to :action => "complete", :id => @purchase 
-
-     # redirect_to :controller => 'lenders', :action => 'frompurchase', :amount => BILL_AMOUNT #"complete", :id => @purchase
+      redirect_to :action => "complete", :id => @purchase 
 
     else
       paypal_error(@response)
