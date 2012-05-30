@@ -9,10 +9,10 @@ development:
   :signature: 'A0o3AvXHe6Wb8ZjOT.FL5Z-A8u31A7JLBhnb4k03FQCtMEsaEk0dG3QL'
   :test: true
 production:
-  :login: 'dranoe_1337688008_biz_api1.gmail.com'
-  :password: '1337688048'
-  :signature: 'A0o3AvXHe6Wb8ZjOT.FL5Z-A8u31A7JLBhnb4k03FQCtMEsaEk0dG3QL'
-  :test: true #changed from false
+  :login: 'playseeds_api1.gmail.com'
+  :password: '3D5A7TFG9QNGKC4J'
+  :signature: 'AHJOI0wiwPiDH9.FC1fOuHlDA1vFAVbc.aSSKFYdu-5q-wvh8zmVEYAG'
+  :test: false
 test:
   :login: 'login'
   :password: 'password'
