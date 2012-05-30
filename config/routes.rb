@@ -16,12 +16,12 @@ Seeds::Application.routes.draw do
 
   resources :lenders
 
-  match "purchase_credit", :controller =>"purchases", :action =>"credit", :via => :get;
-  match "purchase_express", :controller =>"purchases", :action =>"express", :via => :get;
-  match "purchase_express_complete", :controller =>"purchases", :action =>"express_complete", :via => :get;
-  match "purchase_complete", :controller =>"purchases", :action =>"complete", :via => :get;
+  match "purchase_credit", :controller =>"purchase", :action =>"credit", :via => :get;
+  match "purchase_express", :controller =>"purchase", :action =>"express", :via => :get;
+  match "purchase_express_complete", :controller =>"purchase", :action =>"express_complete", :via => :get;
+  match "purchase_complete", :controller =>"purchase", :action =>"complete", :via => :get;
   
-  resources :purchases
+  resources :purchase
   
 
   # The priority is based upon order of creation:
