@@ -9,6 +9,7 @@ Seeds::Application.routes.draw do
   resources :users, :only => [:index, :show]
   root :to => "home#index"
 
+  resources :home
 #  resources :purchases
 #  %w(credit express express_complete complete).each do |action|
 #    match "purchase/#{action}" => "purchase##{action}"

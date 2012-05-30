@@ -30,7 +30,7 @@ class PurchaseController < ApplicationController
     @response = gateway.setup_purchase(BILL_AMOUNT,
       :return_url => url_for(:action => 'express_complete'),
       :cancel_return_url => url_for(:action => 'index'),
-      :description => "My Great Product Name"
+      :description => "My Loan to Seeds"
     )
 
     if @response.success?
