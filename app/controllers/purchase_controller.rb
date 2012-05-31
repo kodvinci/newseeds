@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
   before_filter :require_ssl, :only => [ :index, :credit ]
   before_filter :load_card
   
-  BILL_AMOUNT = 500
+  BILL_AMOUNT = 1000
   
   def index
   end
