@@ -8,8 +8,10 @@ class PurchaseController < ApplicationController
   end
   
   # Use the DirectPayment API
+ 
   def credit
-    render :action => 'index' and return unless @cc.valid?
+
+	  render :action => 'index' and return # unless @cc.valid?
     
     @response = paypal_gateway.purchase(BILL_AMOUNT, @cc, 
       :ip => request.remote_ip,

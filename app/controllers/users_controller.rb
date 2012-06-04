@@ -9,17 +9,18 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-   # @user.lender.build
+    @lender = Lender.new
   end
 
-#def create
-#  @user = User.new(params[:user])
-#   if @user.save
-#     flash[:notice] = "Successfully created user and lender."
-#     redirect_to users_path
-#   else
-#     render :action => 'new'
-#   end
-#end
+  def create
+    @user = User.new(params[:user])
+    @lender = @user.lender.build(params[:lender])
+    if @user.save
+      flash[:notice] = "Successfully signed up as a Seeds lender!"
+      redirect_to :action => 'show'
+    else
+      render :action => 'new'
+    end
+  end
   
 end

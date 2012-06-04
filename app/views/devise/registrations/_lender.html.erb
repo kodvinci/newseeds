@@ -1,0 +1,12 @@
+<div class="lender">
+<%  new_or_existing = lender.new_record? ? 'new' : 'existing' %>
+<%  prefix = "user[#{new_or_existing}_lender_attributes][]" %>
+<% fields_for prefix, lender do |lender_form| -%>
+<p>
+Lender: <%=  lender_form.text_field :name %>
+<%=  link_to_function "remove" , "$(this).up('.task').remove()" %>
+</p>
+<%  end -%>
+</div> 
+
+

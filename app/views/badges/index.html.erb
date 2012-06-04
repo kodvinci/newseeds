@@ -1,0 +1,24 @@
+<h1>Listing badges</h1>
+
+<table>
+  <tr>
+    <th>Badge Number</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @badges.each do |badge| %>
+  <tr>
+    <td><%= badge.BID %></td>
+    <td><%= badge.name %></td>
+    <td><%= badge.description %></td>
+    <td><%= link_to 'Show', badge %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

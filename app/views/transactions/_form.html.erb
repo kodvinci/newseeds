@@ -1,0 +1,34 @@
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lender_id_number %><br />
+    <%= f.number_field :lender_id %>
+  </div>
+  <div class="field">
+    <%= f.label :borrower_id_number %><br />
+    <%= f.number_field :borrower_id %>
+  </div>
+  <div class="field">
+    <%= f.label :borrower_amount %><br />
+    <%= f.text_field :borrower_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :lender_amount %><br />
+    <%= f.datetime_select :lender_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

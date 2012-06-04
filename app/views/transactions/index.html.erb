@@ -1,0 +1,4 @@
+<h1 style="text-align:center">Historical Amounts</h1>
+<p>Total amounts that lenders have crowd sourced: $. <%= Transaction.sum (:lender_amount) %> </p>
+<p>Total amount of loans disbursed to borrowers: Kshs. <%= Transaction.sum (:borrower_amount) %> </p>
+

@@ -1,0 +1,25 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @borrower.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @borrower.last_name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @borrower.description %>
+</p>
+
+<p>
+  <b>Loan Amount borrowed: Kshs. </b>
+  <%= @borrower.sum %>
+</p>
+
+<%= link_to 'Back', borrowers_path %>
+

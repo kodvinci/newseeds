@@ -1,0 +1,51 @@
+<h1 style="text-align:center">New borrower</h1>
+<%= form_for(@borrower) do |f| %>
+  <% if @borrower.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@borrower.errors.count, "error") %> prohibited this borrower from being saved:</h2>
+
+      <ul>
+      <% @borrower.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, ['Female', 'Male'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nationaL_ID_number %><br />
+    <%= f.text_field :nationalID %>
+  </div>
+
+  <div class="field">
+    <%= f.label :business_category %><br />
+    <%= f.select :business_type, ['Farming', 'Transport', 'Communication', 'Trading', 'Fishing'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brief_description_of_business %><br />
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', borrowers_path %>

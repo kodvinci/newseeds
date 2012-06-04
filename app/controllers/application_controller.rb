@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
-  #layout "main"
   protect_from_forgery
+
+def after_sign_in_path_for(resource)
+    users_path(@user)
+end
+  
 end

@@ -1,4 +1,6 @@
 Seeds::Application.routes.draw do
+  devise_for :admins
+
  # get "home/index"
 
   #get "users/index"
@@ -6,24 +8,37 @@ Seeds::Application.routes.draw do
   #get "users/show"
 
   devise_for :users
-  resources :users, :only => [:index, :show]
+  resources :users, :has_one => :lender #:only => [:index, :show]
+ 
+  resources :lenders
+
+#  authenticated :user do
+#    root to: 'users#show'
+#  end
+  
   root :to => "home#index"
 
   resources :home
 #  resources :purchases
-#  %w(credit express express_complete complete).each do |action|
-#    match "purchase/#{action}" => "purchase##{action}"
-#  end
 
-  resources :lenders
+  %w(credit express express_complete complete).each do |action|
+    match "purchase/#{action}" => "purchase##{action}"
+  end
 
-  match "purchase_credit", :controller =>"purchase", :action =>"credit", :via => :get;
-  match "purchase_express", :controller =>"purchase", :action =>"express", :via => :get;
-  match "purchase_express_complete", :controller =>"purchase", :action =>"express_complete", :via => :get;
-  match "purchase_complete", :controller =>"purchase", :action =>"complete", :via => :get;
+#  match "purchase_credit", :controller =>"purchase", :action =>"credit", :via => :get;
+#  match "purchase_express", :controller =>"purchase", :action =>"express", :via => :get;
+#  match "purchase_express_complete", :controller =>"purchase", :action =>"express_complete", :via => :get;
+#  match "purchase_complete", :controller =>"purchase", :action =>"complete", :via => :get;
   
-  resources :purchase
+#  resources :purchase
   
+  resources :borrowers
+
+  resources :transactions
+
+  resources :badges
+
+  resources :badge_lists
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

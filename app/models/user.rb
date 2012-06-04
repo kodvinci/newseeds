@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :save_lender
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -8,29 +9,21 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
   
+  has_one :lender, :autosave => true, :dependent => :destroy  
+
+  accepts_nested_attributes_for :lender, :allow_destroy => true
+
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
-  
-#  has_one :lender, :dependent => :destroy
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :lender_attributes
 
-#  def new_lender_attributes=(lender_attributes)
-#    lender_attributes.each do |attributes|
-#    lender.build(attributes)
-#    end
-#  end  
+  def save_lender
+	lender do |lend|
+	lend.save(false)
+	end
+  end
 
-#def existing_lender_attributes=(lender_attributes)
-#lenders.reject(&:new_record?).each do |lender|
-#attributes = lender_attributes[lender.id.to_s]
-#if attributes
-#lender.attributes = attributes
-#else
-#tasks.delete(task)
-#end
-#end
-#end
-#def save_tasks
-#tasks.each do |task|
-#CLICK HERE
-  
+#  if current_user.admin?
+#	can :manage, :all
+#  end
+
 end
