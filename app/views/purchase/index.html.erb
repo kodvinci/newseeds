@@ -1,43 +1,40 @@
 <h1 style="color:green;text-align:center;">Lend money through Seeds</h1>
 
 <p>
-  Pay by credit card...
+  Pay by credit/Debit card...
 </p>
 
 <%= form_for @cc, :as => :creditcard, :url => { :action => 'credit' } do |f| %>
-  <p>Use your debit or credit card</p>
-  <label>Card Number</label>
-  <%= f.text_field :number %>
-  <label>Card Type</label>
-  <%= f.select :type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %>
-  <label>Expiration</label>
+  <div>Card Number</div>
+  <%= f.text_field :number %> <br />
+  <div>Card Type</div>
+  <%= f.select :type, [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]] %> <br/>
+  <div>Expiration</div>
   <%= f.select :month, (1 .. 12) %>
-  <%= f.select :year, (Time.now.year .. 10.years.from_now.year) %>
-  <label>CVV</label>
-  <%= f.text_field :verification_value, :size => 4 %>
-  <label>Name on Card (first, last)</label>
+  <%= f.select :year, (Time.now.year .. 10.years.from_now.year) %> <br />
+  <div>CVV</div>
+  <%= f.text_field :verification_value, :size => 4 %> <br />
+  <div>Name on Card (first, last)</div>
   <%= f.text_field :first_name %>
-  <%= f.text_field :last_name %>
+  <%= f.text_field :last_name %> <br />
   
-  <label>Billing Address</label>
-  <label>Name</label>
-  <%= text_field_tag 'billing_address[name]' %>
-  <label>Street</label>
-  <%= text_field_tag 'billing_address[address1]' %>
-  <%= text_field_tag 'billing_address[address2]' %>
-  <label>City</label>
-  <%= text_field_tag 'billing_address[city]' %>
-  <label>State</label>
-  <%= text_field_tag 'billing_address[state]' %>
-  <label>Country</label>
-  <%= text_field_tag 'billing_address[country]' %>
-  <label>Zip</label>
-  <%= text_field_tag 'billing_address[zip]' %>
-  <label>Phone</label>
-  <%= text_field_tag 'billing_address[phone]' %>
-  <br/>
+  <div>Billing Address</div> 
+  <div>Name</div>
+  <%= text_field_tag 'billing_address[name]' %> <br />
+  <div>Street</div>
+  <%= text_field_tag 'billing_address[address1]' %> <br />
+  <div>City</div>
+  <%= text_field_tag 'billing_address[city]' %> <br />
+  <div>State</div>
+  <%= text_field_tag 'billing_address[state]' %> <br />
+  <div>Country</div>
+  <%= text_field_tag 'billing_address[country]' %> <br />
+  <div>Zip</div>
+  <%= text_field_tag 'billing_address[zip]' %> <br />
+  <div>Phone</div>
+  <%= text_field_tag 'billing_address[phone]' %> <br/>
   
-  <%= submit_tag 'Lend through Seeds' %>
+  <%= submit_tag 'Pay' %>
 <% end %>
 
 <p>

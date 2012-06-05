@@ -9,10 +9,10 @@ development:
   :signature: 'A0o3AvXHe6Wb8ZjOT.FL5Z-A8u31A7JLBhnb4k03FQCtMEsaEk0dG3QL'
   :test: true
 production:
-  :login: 'login' #'playseeds_api1.gmail.com'
-  :password: 'password' #'3D5A7TFG9QNGKC4J'
-  :signature: 'signature' #'AHJOI0wiwPiDH9.FC1fOuHlDA1vFAVbc.aSSKFYdu-5q-wvh8zmVEYAG'
-  :test: true #false
+  :login: 'playseeds_api1.gmail.com'
+  :password: '3D5A7TFG9QNGKC4J'
+  :signature: 'AHJOI0wiwPiDH9.FC1fOuHlDA1vFAVbc.aSSKFYdu-5q-wvh8zmVEYAG'
+  :test: false
 test:
   :login: 'login'
   :password: 'password'

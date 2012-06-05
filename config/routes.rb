@@ -10,6 +10,8 @@ Seeds::Application.routes.draw do
   devise_for :users
   resources :users, :has_one => :lender #:only => [:index, :show]
  
+  match "lender", :controller =>"lenders", :action =>"show", :via => :get;
+
   resources :lenders
 
 #  authenticated :user do
